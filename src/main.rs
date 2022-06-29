@@ -50,15 +50,23 @@ fn main() -> std::io::Result<()> {
     let args: Vec<String> = env::args().collect();
     // Grab command run
     let command_run: String = args[0].parse::<String>().unwrap();
+    // Argument switches (to better handle arguments)
+    //let mut line_length: u16 = 0;
+    // Go through the arguments passed
+    // let mut text_input: String = "".to_string();
+    // while text_input.is_empty() {
+    //     for passed_arg in args.iter() {
+    //         println!("Arg is: {}", passed_arg);
+    //         match passed_arg {
+    //             "--len" => {
+    //                 line_length = args[2].parse::<u16>().unwrap();
+    //             }
+    //         }
+    //     }
+    // }
+
     // Check for the first passed argument
     let line_length = args[1].parse::<u16>().unwrap();
-    // let mut line_length: u16 = 0;
-    // if args[1].is_empty() {
-    //     line_length = 0;
-    // } else {
-    //     // Grab first argument as Int 16
-    //     line_length = args[1].parse::<u16>().unwrap();
-    // }
     // Grab the rest of the arguments as String
     let text_input_all: Vec<String> = std::env::args().collect();
     let text_input: String = text_input_all[2..].join(" ");
@@ -66,7 +74,7 @@ fn main() -> std::io::Result<()> {
     // Check arguments
     if (text_input.is_empty()) || (line_length < 1) { // TODO: NEED TO HANDLE NO LENGTH PASSED, THIS IS NOT WORKING
         println!("{}Syntax:{}", text_yellow, text_colorclear);
-        println!("        {}{} {}{}[chars per line >1]{} {}{}['text to print']", text_gray, command_run, text_backgray, text_cyan, text_allclear, text_backgray, text_fluorgreen);
+        println!("        {}{} {}{}[chars per line >1]{} {}{}['text to print']{}", text_gray, command_run, text_backgray, text_cyan, text_allclear, text_backgray, text_fluorgreen, text_allclear);
     } else {
         // Convert text to big text
         let text_big: Vec<String> = text_sm_bg(text_input, line_length);
