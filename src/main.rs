@@ -4,66 +4,20 @@ fn main() -> std::io::Result<()> {
 
     // Formatting (see https://docs.rs/embedded-text/0.4.0/embedded_text/style/index.html)
     // Text colors
-    let text_black = "\x1b[30m";
-    let text_red = "\x1b[31m";
-    let text_green = "\x1b[32m";
     let text_yellow = "\x1b[33m";
-    let text_blue = "\x1b[34m";
-    let text_magenta = "\x1b[35m";
-    let text_cyan = "\x1b[36m";
-    let text_white = "\x1b[37m";
     let text_gray = "\x1b[90m";
-    let text_salmon = "\x1b[91m";
     let text_fluorgreen = " \x1b[92m";
-    let text_pastelyellow = "\x1b[93m";
-    let text_babyblue = "\x1b[94m";
-    let text_pink = "\x1b[95m";
     let text_cyan = "\x1b[96m";
-    let text_white = "\x1b[97m";
     let text_colorclear = "\x1b[39m";
     // Background colors
-    let text_backblack = "\x1b[40m";
-    let text_backred = "\x1b[41m";
-    let text_backgreen = "\x1b[42m";
-    let text_backyellow = "\x1b[43m";
-    let text_backblue = "\x1b[44m";
-    let text_backmagenta = "\x1b[45m";
-    let text_backcyan = "\x1b[46m";
-    let text_backwhite = "\x1b[47m";
     let text_backgray = "\x1b[100m";
-    let text_backsalmon = "\x1b[101m";
-    let text_backfluorgreen = " \x1b[102m";
-    let text_backpastelyellow = "\x1b[103m";
-    let text_backbabyblue = "\x1b[104m";
-    let text_backpink = "\x1b[105m";
-    let text_backcyan = "\x1b[106m";
-    let text_backwhite = "\x1b[107m";
-    let text_backclear = "\x1b[49m";
     // Formatting
-    let text_underline = "\x1b[4m";
-    let text_underlineclear = "\x1b[24m";
-    let text_strike = "\x1b[9m";
-    let text_strickclear = "\x1b[29m";
     let text_allclear = "\x1b[0m";
 
     // Command line arguments
     let args: Vec<String> = env::args().collect();
     // Grab command run
     let command_run: String = args[0].parse::<String>().unwrap();
-    // Argument switches (to better handle arguments)
-    //let mut line_length: u16 = 0;
-    // Go through the arguments passed
-    // let mut text_input: String = "".to_string();
-    // while text_input.is_empty() {
-    //     for passed_arg in args.iter() {
-    //         println!("Arg is: {}", passed_arg);
-    //         match passed_arg {
-    //             "--len" => {
-    //                 line_length = args[2].parse::<u16>().unwrap();
-    //             }
-    //         }
-    //     }
-    // }
 
     // Check for the first passed argument
     let line_length = args[1].parse::<u16>().unwrap();
